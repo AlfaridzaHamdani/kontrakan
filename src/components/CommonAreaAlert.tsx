@@ -2,8 +2,8 @@ import React from 'react';
 import { Megaphone, ArrowRight } from 'lucide-react';
 
 const CommonAreaAlert: React.FC = () => {
-  const message = "🚨 *WOY KOTOR BANGET BRO* 🚨\n\nLokasi: *Dapur / Lorong*\n\nSiapapun yang abis make atau nyampah, tolong banget dibersihin ya. Jangan jorok lah, biar kontrakan kita enak diliat. \n\n*Gas bersihin!* 🔥";
-  const waLink = `https://wa.me/?text=${encodeURIComponent(message)}`;
+  const message = "🚨 *WOY KOTOR BANGET BRO* 🚨\n\nLokasi: *Dapur / Lorong*\n\nSiapapun yang abis make atau nyampah, tolong banget dibersihin ya. Jangan jorok lah, biar kontrakan kita enak dipandang. \n\n*Gas bersihin skuy!* 🔥";
+  const waLink = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
 
   return (
     <div className="px-4 mb-8 pt-4">

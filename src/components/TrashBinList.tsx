@@ -43,7 +43,7 @@ const TrashBinList: React.FC = () => {
 
   const getWaLink = (binName: string) => {
     const message = `⚠️ *PERINGATAN KEBERSIHAN* ⚠️\n\nLokasi: *${binName}*\nStatus: *PENUH / OVERLOAD* 🔴\n\nMohon kepada penghuni terkait untuk segera mengosongkan tempat sampah ini demi kenyamanan bersama. Terima kasih. 🙏`;
-    return `https://wa.me/?text=${encodeURIComponent(message)}`;
+    return `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
   };
 
   return (
