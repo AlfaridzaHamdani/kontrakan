@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-mono: 'Space Mono', monospace;
+  
+  --color-retro-pink: #FFD6E0;
+  --color-retro-cream: #FFFDF0;
+  --color-retro-blue: #C5D1F5;
+  --color-retro-border: #000000;
+  
+  --shadow-retro: 4px 4px 0 0 #000000;
+  --shadow-retro-sm: 2px 2px 0 0 #000000;
+  --shadow-retro-lg: 8px 8px 0 0 #000000;
+}
+
+body {
+  font-family: var(--font-mono);
+  background-color: var(--color-retro-pink);
+  color: #000;
+  background-image: radial-gradient(#000 1px, transparent 1px);
+  background-size: 24px 24px;
+}
