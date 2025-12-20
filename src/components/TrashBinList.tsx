@@ -1,45 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Trash2, CheckCircle2, AlertTriangle, MessageCircle } from 'lucide-react';
 
-interface Bin {
+export interface Bin {
   id: string;
   name: string;
   location: string;
   status: 'empty' | 'full';
 }
 
-const TrashBinList: React.FC = () => {
-  // Load initial state from localStorage or use default
-  const [bins, setBins] = useState<Bin[]>(() => {
-    const saved = localStorage.getItem('kontrakan_bin_data');
-    if (saved) {
-      return JSON.parse(saved);
-    }
-    return [
-      { id: 'A', name: 'Tempat Sampah Rafael & Nuko', location: 'Depan Kamar Rafael & Nuko', status: 'empty' },
-      { id: 'B', name: 'Tempat Sampah Alfa', location: 'Depan Kamar Alfa', status: 'full' },
-      { id: 'C', name: 'Tempat Sampah David', location: 'Depan Kamar David', status: 'empty' },
-      { id: 'D', name: 'Tempat Sampah Ariq', location: 'Depan Kamar Ariq', status: 'empty' },
-      { id: 'E', name: 'Tempat Sampah Rafi', location: 'Depan Kamar Rafi', status: 'empty' },
-      { id: 'F', name: 'Tempat Sampah Adam', location: 'Depan Kamar Adam', status: 'empty' },
-      { id: 'G', name: 'Tempat Sampah Baron', location: 'Depan Kamar Baron', status: 'empty' },
-      { id: 'H', name: 'Tempat Sampah Dapur', location: 'Dapur', status: 'empty' },
-    ];
-  });
+interface TrashBinListProps {
+  bins: Bin[];
+  onToggleStatus: (id: string) => void;
+}
 
-  React.useEffect(() => {
-    localStorage.setItem('kontrakan_bin_data', JSON.stringify(bins));
-  }, [bins]);
-
-  const toggleStatus = (id: string) => {
-    setBins(prev => prev.map(bin => {
-      if (bin.id !== id) return bin;
-      return {
-        ...bin,
-        status: bin.status === 'empty' ? 'full' : 'empty'
-      };
-    }));
-  };
+const TrashBinList: React.FC<TrashBinListProps> = ({ bins, onToggleStatus }) => {
 
   const getWaLink = (binName: string) => {
     const message = `⚠️ *PERINGATAN KEBERSIHAN* ⚠️\n\nLokasi: *${binName}*\nStatus: *PENUH / OVERLOAD* 🔴\n\nMohon kepada penghuni terkait untuk segera mengosongkan tempat sampah ini demi kenyamanan bersama. Terima kasih. 🙏`;
@@ -50,7 +24,7 @@ const TrashBinList: React.FC = () => {
     <section className="px-4 mb-20">
       <h3 className="text-lg font-bold mb-4 flex items-center gap-2 border-b-2 border-black pb-2">
         <span className="w-3 h-3 bg-black"></span>
-        Pencatatan Sampah Harian
+        Laporan Kondisi Tong Sampah
       </h3>
 
       <div className="space-y-4">
@@ -75,7 +49,7 @@ const TrashBinList: React.FC = () => {
               </div>
               
               <button 
-                onClick={() => toggleStatus(bin.id)}
+                onClick={() => onToggleStatus(bin.id)}
                 className={`px-3 py-1 text-xs font-bold border-2 border-black transition-colors shadow-retro-sm active:shadow-none active:translate-x-[2px] active:translate-y-[2px] ${
                   bin.status === 'empty' 
                     ? 'bg-green-300 hover:bg-green-400 text-black' 
