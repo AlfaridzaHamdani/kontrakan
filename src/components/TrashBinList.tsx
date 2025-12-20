@@ -50,7 +50,7 @@ const TrashBinList: React.FC = () => {
     <section className="px-4 mb-20">
       <h3 className="text-lg font-bold mb-4 flex items-center gap-2 border-b-2 border-black pb-2">
         <span className="w-3 h-3 bg-black"></span>
-        Daftar Tempat Sampah
+        Pencatatan Sampah Harian
       </h3>
 
       <div className="space-y-4">

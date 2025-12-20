@@ -1,73 +1,67 @@
-# React + TypeScript + Vite
+# ZeroWaste Kontrakan
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Scope:** Satu rumah kontrakan sebagai komunitas kecil
+**Jenis Solusi:** Website berbasis partisipasi warga
+**Karakteristik Proyek:** Pilot project yang dapat direplikasi ke kontrakan lain
 
-Currently, two official plugins are available:
+## Latar Belakang Masalah
+- Sampah kontrakan tercampur setiap hari
+- Penghuni belum paham pemilahan sampah
+- Tidak ada data volume dan jenis sampah
+- Tidak ada aturan bersama terkait sampah
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tujuan Proyek
+- Meningkatkan partisipasi penghuni kontrakan
+- Membentuk kebiasaan pilah sampah
+- Menyediakan data pengelolaan sampah
+- Mendukung konsep zero waste skala mikro
 
-## React Compiler
+## Target Pengguna
+- Penghuni kontrakan
+- Pengelola kontrakan
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Fitur Utama
 
-## Expanding the ESLint configuration
+### Akun Penghuni
+**Fungsi:** Setiap kamar memiliki akun untuk mencatat aktivitas sampah
+**Manfaat:** Mendorong tanggung jawab individu
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Edukasi Pemilahan Sampah
+**Fungsi:** Menampilkan panduan pilah sampah organik dan anorganik
+**Manfaat:** Meningkatkan kesadaran dan pengetahuan penghuni
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Pencatatan Sampah Harian
+**Fungsi:** Input jenis dan jumlah sampah per hari
+**Manfaat:** Menyediakan data nyata pengelolaan sampah
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Dashboard Kontrakan
+**Fungsi:** Menampilkan statistik partisipasi dan volume sampah
+**Manfaat:** Mendorong transparansi dan evaluasi bersama
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Aturan dan Kesepakatan Kontrakan
+**Fungsi:** Menampilkan aturan pengelolaan sampah yang disepakati bersama
+**Manfaat:** Mendukung ketertiban dan demokrasi internal
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Aktivitas Implementasi
+1. Observasi kondisi sampah sebelum penggunaan website
+2. Sosialisasi singkat kepada penghuni kontrakan
+3. Penggunaan website selama periode uji coba
+4. Pengumpulan data partisipasi dan sampah
+5. Evaluasi hasil dan perubahan perilaku
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Data Output
+- Jumlah sampah harian
+- Jenis sampah terpilah
+- Tingkat partisipasi penghuni
+- Perbandingan sebelum dan sesudah implementasi
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Relevansi dengan Program Studi
+- Perancangan sistem informasi
+- Pengelolaan database sederhana
+- Pengembangan website ramah pengguna
+- Pemanfaatan teknologi untuk solusi sosial
+
+## Keselarasan dengan SDGs
+- **SDGs 11:** Lingkungan hunian kontrakan lebih bersih
+- **SDGs 12:** Pengelolaan sampah yang bertanggung jawab
+- **SDGs 16:** Partisipasi dan kesepakatan bersama

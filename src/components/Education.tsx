@@ -30,10 +30,10 @@ const Education: React.FC = () => {
     <section className="px-4 mb-24">
       <h3 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
         <span className="w-1 h-6 bg-emerald-500 rounded-full"></span>
-        Edukasi Pemilahan
+        Edukasi Pemilahan Sampah
       </h3>
       
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 gap-4">
         {tips.map((tip, idx) => (
           <div key={idx} className={`p-4 rounded-xl border ${tip.borderColor} ${tip.color} shadow-sm transition-transform active:scale-95`}>
             {tip.icon}

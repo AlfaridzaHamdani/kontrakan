@@ -1,28 +1,32 @@
 import React from 'react';
 import { AlertTriangle, CheckCircle2 } from 'lucide-react';
 
+import type { Room } from './RoomTracker';
+
+/*
 interface Area {
-  id: string;
+  id: string; 
   name: string;
   status: 'clean' | 'dirty';
   type: 'room' | 'common';
 }
+*/
 
 interface CleanlinessReportProps {
-  areas: Area[];
+  areas: Room[];
 }
 
 const CleanlinessReport: React.FC<CleanlinessReportProps> = ({ areas }) => {
   const total = areas.length;
   const cleanCount = areas.filter(a => a.status === 'clean').length;
   const percentage = Math.round((cleanCount / total) * 100);
-  const dirtyAreas = areas.filter(a => a.status === 'dirty');
+  const dirtyAreas = areas.filter(a => a.status !== 'clean');
 
   return (
     <section className="px-4 mb-8">
       <div className="bg-white rounded-xl p-5 border border-gray-100 shadow-sm">
         <h3 className="font-bold text-gray-800 mb-4 flex items-center justify-between">
-          <span>Laporan Kebersihan</span>
+          <span>Dashboard Kontrakan</span>
           <span className={`px-2 py-1 rounded-full text-xs ${percentage === 100 ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700'}`}>
             Skor: {percentage}%
           </span>

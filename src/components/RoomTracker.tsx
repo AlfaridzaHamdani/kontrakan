@@ -1,30 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { CheckCircle2, AlertCircle, Trash2 } from 'lucide-react';
 
-interface Room {
+export interface Room {
   id: number;
   name: string;
   status: 'clean' | 'full' | 'critical';
 }
 
-const RoomTracker: React.FC = () => {
-  const [rooms, setRooms] = useState<Room[]>([
-    { id: 1, name: 'Kamar 1 (Dinda)', status: 'clean' },
-    { id: 2, name: 'Kamar 2 (Rian)', status: 'full' },
-    { id: 3, name: 'Kamar 3 (Siti)', status: 'clean' },
-    { id: 4, name: 'Kamar 4 (Budi)', status: 'clean' },
-    { id: 5, name: 'Kamar 5 (Edo)', status: 'critical' },
-    { id: 6, name: 'Kamar 6 (Fani)', status: 'clean' },
-    { id: 7, name: 'Kamar 7 (Gilang)', status: 'full' },
-  ]);
+interface RoomTrackerProps {
+  rooms: Room[];
+  onToggleStatus: (id: number) => void;
+}
 
-  const toggleStatus = (id: number) => {
-    setRooms(prev => prev.map(room => {
-      if (room.id !== id) return room;
-      const nextStatus = room.status === 'clean' ? 'full' : room.status === 'full' ? 'critical' : 'clean';
-      return { ...room, status: nextStatus };
-    }));
-  };
+const RoomTracker: React.FC<RoomTrackerProps> = ({ rooms, onToggleStatus }) => {
+
 
   const getStatusColor = (status: string) => {
     switch(status) {
@@ -47,14 +36,14 @@ const RoomTracker: React.FC = () => {
     <section className="px-4 mb-8">
        <h3 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
         <span className="w-1 h-6 bg-emerald-500 rounded-full"></span>
-        Status Sampah Kamar
+        Akun Penghuni
       </h3>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 gap-3">
         {rooms.map(room => (
           <button 
             key={room.id}
-            onClick={() => toggleStatus(room.id)}
-            className={`p-4 rounded-xl border-2 flex flex-col items-start gap-2 transition-all active:scale-95 text-left ${getStatusColor(room.status)}`}
+            onClick={() => onToggleStatus(room.id)}
+            className={`p-3 rounded-xl border-2 flex flex-col items-start gap-2 transition-all active:scale-95 text-left ${getStatusColor(room.status)}`}
           >
             <div className="flex justify-between w-full">
               <span className="font-bold text-sm bg-white/50 px-2 py-1 rounded-md">{room.name}</span>
